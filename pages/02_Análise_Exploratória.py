@@ -6,6 +6,8 @@ import pytimetk as tk
 # import matplotlib.pyplot as plt
 import plotly.express as px
 # import io
+#from mitosheet.streamlit.v1 import spreadsheet
+
 
 # Begin
 st.markdown(
@@ -21,6 +23,7 @@ petr_brent['DATE'] = pd.to_datetime(petr_brent['DATE'])
 
 tab1, tab2 = st.tabs(["Petróleo Brent", "Fatores Exógenos"])
 
+#spreadsheet(petr_brent)
 
 # calculate descriptive statistics
 
