@@ -9,7 +9,7 @@ import plotly.express as px
 
 # Begin
 st.markdown(
-    "<h1 style='text-align: center; color: black;'> Análise Exploratória </h1>",
+    "<h1 style='text-align: center;'> Análise Exploratória </h1>",
     unsafe_allow_html=True
 )
 

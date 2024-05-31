@@ -26,7 +26,7 @@ def get_ipea_data():
 if 'key' not in st.session_state:
     st.session_state.petr_brent = get_ipea_data()
 
-st.markdown("<h1 style='text-align: center; color: white;'>Tech Challenge 04</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center'; >Tech Challenge 04</h1>", unsafe_allow_html=True)
 
 st.image('images/img_fiap.jpeg', caption='FIAP -Alura Pós-Tech - 3DTAT (maio/2024)', use_column_width=True)
 
