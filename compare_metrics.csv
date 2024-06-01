@@ -1,0 +1,14 @@
+,Model,MASE,RMSSE,MAE,RMSE,MAPE,SMAPE,R2,TT (Sec)
+omp_cds_dt,Orthogonal Matching Pursuit w/ Cond. Deseasonalize & Detrending,1.3874,1.2261,7.2426,8.6649,0.0813,0.0791,-0.6424,7.1967
+lr_cds_dt,Linear w/ Cond. Deseasonalize & Detrending,1.413,1.2479,7.372,8.8159,0.0826,0.0803,-0.6485,7.6033
+rf_cds_dt,Random Forest w/ Cond. Deseasonalize & Detrending,1.7994,1.5634,9.3506,11.0178,0.104,0.099,-1.2259,16.6333
+lightgbm_cds_dt,Light Gradient Boosting w/ Cond. Deseasonalize & Detrending,2.0542,1.8124,10.6602,12.7621,0.1179,0.1112,-1.5271,10.1467
+naive,Naive Forecaster,2.0545,1.7737,10.7148,12.5224,0.1196,0.1156,-1.8846,0.1267
+bats,BATS,2.0558,1.7749,10.7214,12.5311,0.1197,0.1157,-1.8854,52.89
+tbats,TBATS,2.0558,1.7749,10.7214,12.5311,0.1197,0.1157,-1.8854,156.8767
+auto_arima,Auto ARIMA,2.1297,1.8495,11.0953,13.0498,0.1233,0.119,-1.8585,92.8267
+ets,ETS,2.2658,1.9604,11.7878,13.8205,0.1313,0.1246,-2.31,1.11
+snaive,Seasonal Naive Forecaster,2.2945,1.9183,12.0124,13.574,0.1362,0.1305,-4.2918,0.1767
+knn_cds_dt,K Neighbors w/ Cond. Deseasonalize & Detrending,2.4765,2.0867,12.9285,14.7449,0.1491,0.1352,-7.828,10.19
+polytrend,Polynomial Trend Forecaster,2.6784,2.2307,13.7877,15.6397,0.1413,0.1558,-2.5288,0.0933
+dt_cds_dt,Decision Tree w/ Cond. Deseasonalize & Detrending,3.5613,2.9588,18.7986,21.0113,0.2122,0.2409,-9.1172,6.8533
