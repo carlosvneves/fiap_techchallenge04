@@ -1,5 +1,6 @@
+other/*
 # intelij
-.idea/
+.idea/*
 # Streamlit
 .streamlit/
 

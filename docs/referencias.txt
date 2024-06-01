@@ -1,0 +1,9 @@
+@article{owid-energy-production-consumption,
+    author = {Hannah Ritchie and Pablo Rosado and Max Roser},
+    title = {Energy Production and Consumption},
+    journal = {Our World in Data},
+    year = {2020},
+    note = {https://ourworldindata.org/energy-production-consumption}
+}
+
+Energy Institute - Statistical Review of World Energy (2023); The Shift Data Portal (2019) – with major processing by Our World in Data. “Oil production” [dataset]. Energy Institute, “Statistical Review of World Energy”; The Shift Data Portal, “Energy production from fossil fuels” [original data]. Retrieved May 31, 2024 from https://ourworldindata.org/grapher/oil-production-by-country
