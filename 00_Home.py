@@ -3,7 +3,6 @@ import ipeadatapy as ip
 from os.path import exists
 import pandas as pd
 
-
 @st.cache_data
 def get_ipea_data():
     if not exists('data/petr_brent.csv'):
