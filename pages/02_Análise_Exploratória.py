@@ -1,5 +1,5 @@
 # carregamento de bibliotecas
-from os import truncate
+# from os import truncate
 import streamlit as st
 import pandas as pd
 import pytimetk as tk
@@ -430,7 +430,7 @@ with exog_tab:
             x=normalized_production.index,
             y=normalized_production[country],
             mode="lines",
-            name=f"{country} Production",
+            name=f"{country} Produção",
             line=dict(dash="solid"),  # Solid lines for production values
             opacity=0.45,
         )
@@ -441,7 +441,7 @@ with exog_tab:
         x=normalized_price.index,
         y=normalized_price["price"],
         mode="lines+markers",
-        name="Price",
+        name="Preço",
         yaxis="y2",
         line=dict(dash="dot", color="red"),  # Dotted line and red color for price values
     )
@@ -449,7 +449,7 @@ with exog_tab:
 
     # Create the layout
     layout = go.Layout(
-        title="Séries normalizadas de produção e de preço de petróleo",
+        title="Produção e Preço anual do Petroleo normalizados",
         xaxis=dict(title="Ano"),
         yaxis=dict(title="Produção normalizada"),
         yaxis2=dict(title="Preço normalizado", overlaying="y", side="right"),
@@ -464,22 +464,28 @@ with exog_tab:
     # Show the plot
     st.plotly_chart(fig)
 
-    fig = px.line(
-        price_y_percent_change,
-        title="Variação anual do preço do Petróleo do tipo Brent (%)",
-        labels={"index": "Ano", "value": "Variação (%)"},
-    )
+    # fig = px.line(
+    #     price_y_percent_change,
+    #     title="Variação anual do preço do Petróleo do tipo Brent (%)",
+    #     labels={"index": "Ano", "value": "Variação (%)"},
+    # )
 
-    st.plotly_chart(fig)
+    # st.plotly_chart(fig)
 
     # consumption percent change
     df_consump_pct_change = change_ener_consump_gt_2001[['Year', 'Entity','Annual change in primary energy consumption (%)']].copy()
-    df_consump_pct_change.rename(columns={'Annual change in primary energy consumption (%)':'Percent Change'}, inplace=True)
+    df_consump_pct_change.rename(columns={'Annual change in primary energy consumption (%)': 'Percent Change', "Entity": "Type"}, inplace=True)
+    df_consump_pct_change.set_index('Year', inplace=True)
+
+    # st.write(df_consump_pct_change.head())
+    
     # df_consump_melted = df_consump_pct_change.reset_index().melt(
-    #     id_vars=["Year"], var_name="Country", value_name="Percent Change"
+    #     id_vars=["Year"], var_name="Type",  
+    #     value_vars= ["Entity", "Percent Change"], 
+        
     # )
 
-    st.write(df_consump_pct_change)
+    # st.write(df_consump_melted)
 
     # price percent change
     price_y_percent_change = price_y.resample("Y").sum().pct_change() * 100
@@ -494,14 +500,120 @@ with exog_tab:
     df_price_melted = df_price_pct_change.reset_index().melt(
         id_vars=["Year"], var_name="Type", value_vars = "price", value_name="Percent Change",
     )
+    df_price_melted.set_index('Year', inplace=True)
 
-    st.write(df_price_melted)
+    # st.write(df_price_melted)
 
     # Combine the concumption and price data for plotting
-    df_combined = pd.concat([df_consump_melted, df_price_melted])
-    # df_combined["Type"] = df_combined["Type"].fillna(df_combined["Entity"])
+    # df_combined = pd.concat([df_consump_pct_change, df_price_melted])
+    #df_combined["Type"] = df_combined["Type"].fillna(df_combined["Entity"])
     # df_combined.drop(columns=["Entity"], inplace=True)
+    # df_combined.reset_index(inplace=True)
+    # Plot the data
+    # fig = px.line(df_combined, x="Year", y="Percent Change", color="Type")
+    # st.plotly_chart(fig)
+    st.divider()
+    
+    df_consump_pct_change.reset_index(inplace=True)
+    #transform from long to wide format
+    df_consump_pct_change = df_consump_pct_change.pivot(index="Year", columns="Type", values="Percent Change")
 
-    st.write(df_combined)
+    # Create traces for each country's production values
+    traces = []
+    for country in df_consump_pct_change.columns[1:]:  # Exclude the 'Year' column
+        trace = go.Scatter(
+            x=df_consump_pct_change.index,
+            y=df_consump_pct_change[country],
+            mode="lines",
+            name=f"{country} Consumo",
+            line=dict(dash="solid"),  # Solid lines for production values
+            opacity=0.45,
+        )
+        traces.append(trace)
 
-    #price_y = price.resample("Y").mean()
+    # Create a trace for the yearly price series, using a secondary y-axis
+    trace_price = go.Scatter(
+        x=df_price_pct_change["Year"],
+        y=df_price_pct_change["price"],
+        mode="lines+markers",
+        name="Preço",
+        yaxis="y2",
+        line=dict(dash="dot", color="red"),  # Dotted line and red color for price values
+    )
+    traces.append(trace_price)
+
+    # Create the layout
+    layout = go.Layout(
+        title="Variação anual do Consumo de Energia e de Preços do Petróleo do tipo Brent (%)",
+        xaxis=dict(title="Ano"),
+        yaxis=dict(title="Consumo de energia (%)"),
+        yaxis2=dict(title="Variação de preços (%)", overlaying="y", side="right"),
+        legend=dict(orientation="h", yanchor="bottom", y=-0.5, xanchor="right", x=1),
+        height= 600,
+        width= 800,
+    )
+
+    # Combine the traces into a figure
+    fig = go.Figure(data=traces, layout=layout)
+
+    st.plotly_chart(fig)
+
+    
+    # stationationarity test
+    # res = dash_utils.stationarity_test(df_price['price'])
+    # st.write(res)
+
+    # res = dash_utils.stationarity_test(df_price_pct_change['price'])
+    # st.write(res)
+
+    # granger test - preço granger-causa consumo
+    df_price_pct_change = df_price_pct_change[['Year', 'price']].set_index('Year')
+    # granger_result = dict() 
+    # for country in df_consump_pct_change.columns[1:]:
+    #     # st.write(country)
+    #     # st.write(dash_utils.stationarity_test(df_consump_pct_change[country]))
+    #     try:
+    #         y = df_consump_pct_change[country]
+    #         data = pd.merge(x,y, on = 'Year')  
+    #         # st.write(data)
+    #         res = dash_utils.granger_test(data)
+    #     except Exception as e:
+    #         res = e
+    #     # st.write(res)
+    #     granger_result[country] = res
+    
+    # st.write(x)
+    # st.write(y)
+    
+    st.write('## Teste de Granger - Produção -> Preço')
+    granger_result_prod = dash_utils.test_series(y=normalized_price, x=normalized_production, direction = 'x-y') 
+    st.write(pd.DataFrame(granger_result_prod))
+
+    st.write('## Teste de Granger - Preço -> Produção')
+    granger_result_prod = dash_utils.test_series(y=normalized_price, x=normalized_production, direction = 'y-x') 
+    st.write(pd.DataFrame(granger_result_prod))
+    
+    st.write('## Teste de Granger - Consumo -> Preço')
+    granger_result_cons = dash_utils.test_series(y=df_price_pct_change, x=df_consump_pct_change, direction = 'x-y') 
+    st.write(pd.DataFrame(granger_result_cons))
+
+    # granger test - produção granger-causa preço
+    # y = normalized_price
+    # granger_result_prod = dict() 
+    # for country in normalized_production.columns[1:]:
+    #     st.write(country)
+    #     st.write(dash_utils.stationarity_test(normalized_production[country]))
+    #     try:
+    #         y = normalized_production[country]
+    #         data = pd.merge(x,y, on = 'Year')  
+    #         # st.write(data)
+    #         res = dash_utils.granger_test(data)
+    #     except Exception as e:
+    #         res = e
+    #     # st.write(res)
+    #     granger_result_prod[country] = res
+    
+    # st.write(x)
+    # st.write(y)
+
+
