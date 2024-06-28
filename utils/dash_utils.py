@@ -145,12 +145,12 @@ def granger_test(data):
         test_results = granger_test_result[lag][0]
         min_pvalue = min(test_results['ssr_ftest'][1], test_results['ssr_chi2test'][1], test_results['lrtest'][1], test_results['params_ftest'][1])
         if min_pvalue <= 0.05:
-            causality_result = "granger causes"
+            causality_result = "granger causa"
         else:
-            causality_result = "granger does not cause"
+            causality_result = "granger não-causa"
         
         result.append({lag: [min_pvalue, causality_result]})
-    result.append({"stationarity": [x_stationary, y_stationary]})
+    result.append({"estacionaridade": [x_stationary, y_stationary]})
      
     return result
 
@@ -175,6 +175,15 @@ def test_series(y, x, direction = 'y-x'):
         test_results[country] = res
         # test_results[country].append(stationarity)
     return test_results
+
+def extract_granger_result(cell):
+    if isinstance(cell, dict):
+        for value in cell.values():
+            if len(value) > 1 and value[1] == 'granger causa':
+                return value[1]
+    return None
+
+
 
 if __name__ == "__main__":
 

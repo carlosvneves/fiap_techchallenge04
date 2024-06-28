@@ -181,6 +181,8 @@ with tab2:
     )
     )
 
+    anomalize_df.to_csv('data/anomalyze_df.csv')
+
 with tab3:
     st.markdown(f"""
         ### Fatores Exógenos
@@ -391,6 +393,10 @@ with exog_tab:
     # from daily to annual
     price = anomalize_df[["date","observed_clean"]]
     price.rename(columns={"observed_clean":"price"}, inplace=True)
+    price.to_csv("data/price.csv")
+
+    # from daily to annual
+
     price_y = price.set_index('date').resample("Y").mean()
 
     # price percent change
@@ -513,6 +519,8 @@ with exog_tab:
     # fig = px.line(df_combined, x="Year", y="Percent Change", color="Type")
     # st.plotly_chart(fig)
     st.divider()
+
+    st.write("## Correlação entre Preço, Consumo e Produção")
     
     df_consump_pct_change.reset_index(inplace=True)
     #transform from long to wide format
@@ -558,62 +566,112 @@ with exog_tab:
 
     st.plotly_chart(fig)
 
-    
-    # stationationarity test
-    # res = dash_utils.stationarity_test(df_price['price'])
-    # st.write(res)
+    st.divider()
 
-    # res = dash_utils.stationarity_test(df_price_pct_change['price'])
-    # st.write(res)
-
-    # granger test - preço granger-causa consumo
     df_price_pct_change = df_price_pct_change[['Year', 'price']].set_index('Year')
-    # granger_result = dict() 
-    # for country in df_consump_pct_change.columns[1:]:
-    #     # st.write(country)
-    #     # st.write(dash_utils.stationarity_test(df_consump_pct_change[country]))
-    #     try:
-    #         y = df_consump_pct_change[country]
-    #         data = pd.merge(x,y, on = 'Year')  
-    #         # st.write(data)
-    #         res = dash_utils.granger_test(data)
-    #     except Exception as e:
-    #         res = e
-    #     # st.write(res)
-    #     granger_result[country] = res
-    
-    # st.write(x)
-    # st.write(y)
-    
-    st.write('## Teste de Granger - Produção -> Preço')
-    granger_result_prod = dash_utils.test_series(y=normalized_price, x=normalized_production, direction = 'x-y') 
-    st.write(pd.DataFrame(granger_result_prod))
 
-    st.write('## Teste de Granger - Preço -> Produção')
-    granger_result_prod = dash_utils.test_series(y=normalized_price, x=normalized_production, direction = 'y-x') 
-    st.write(pd.DataFrame(granger_result_prod))
+    # correlation between normalized price and normalized production
+    st.markdown("""
+    ## Correlações
     
-    st.write('## Teste de Granger - Consumo -> Preço')
-    granger_result_cons = dash_utils.test_series(y=df_price_pct_change, x=df_consump_pct_change, direction = 'x-y') 
-    st.write(pd.DataFrame(granger_result_cons))
+    Utilizando a máxima de que correlação não é causalidade, especialmente porque em séries temporais ocorrem muitas correlações espúrias,
+    é possível analisar a correlação entre as séries de interesse, de modo que se possa avaliar em que medida suas variações ao longo do
+     tempo se relacionam.
+                """)
+    corr_matrix = normalized_price.join(normalized_production, lsuffix='_x', rsuffix='_y').corr()
+    # Create the heatmap
+    fig = px.imshow(
+        corr_matrix,
+        text_auto=True,
+        color_continuous_scale='Inferno',
+        title="Correlação entre Preço e Produção normalizados",
+        labels=dict(color="Correlation")
+    )
 
-    # granger test - produção granger-causa preço
-    # y = normalized_price
-    # granger_result_prod = dict() 
-    # for country in normalized_production.columns[1:]:
-    #     st.write(country)
-    #     st.write(dash_utils.stationarity_test(normalized_production[country]))
-    #     try:
-    #         y = normalized_production[country]
-    #         data = pd.merge(x,y, on = 'Year')  
-    #         # st.write(data)
-    #         res = dash_utils.granger_test(data)
-    #     except Exception as e:
-    #         res = e
-    #     # st.write(res)
-    #     granger_result_prod[country] = res
-    
-    # st.write(x)
-    # st.write(y)
+    st.plotly_chart(fig)
 
+    # Extract correlations for column 'price'
+    correlations_A = corr_matrix['price']
+
+    # Remove the correlation of 'price' with itself
+    correlations_A = correlations_A.drop('price')
+
+    # Find the column with the greatest positive correlation value with 'price'
+    max_corr_col = correlations_A.idxmax()
+    max_corr_value = correlations_A.max()
+
+    st.write(f"""
+    A correlação mais alta entre preço e produção foi identificada com o país {max_corr_col}, com um valor de {max_corr_value: .2f}.""")
+
+
+    # correlation between normalized price and normalized production
+    #st.write('## Correlação entre Preço e Consumo em termos de variação percentual') #
+    corr_matrix = df_price_pct_change.join(df_consump_pct_change, lsuffix='_x', rsuffix='_y').corr()
+
+    # Create the heatmap
+    fig = px.imshow(
+        corr_matrix,
+        text_auto=True,
+        color_continuous_scale='Inferno',
+        title="Correlação entre Preço e Consumo em termos de variação percentual",
+        labels=dict(color="Correlation")
+    )
+    st.plotly_chart(fig)
+
+    # Extract correlations for column 'price'
+    correlations_A = corr_matrix['price']
+
+    # Remove the correlation of 'price' with itself
+    correlations_A = correlations_A.drop('price')
+
+    # Find the column with the greatest positive correlation value with 'price'
+    max_corr_col = correlations_A.idxmax()
+    max_corr_value = correlations_A.max()
+
+    st.write(f"""
+    A correlação mais alta entre preço e consumo foi identificada com o país {max_corr_col}, com um valor de {max_corr_value: .2f}.""")
+
+    st.divider()
+
+    # granger test and stationarity - preço granger-causa consumo
+    # st.write('### Teste de Granger - Produção causa Preço')
+    granger_result_prod = dash_utils.test_series(y=normalized_price, x=normalized_production, direction = 'x-y')
+
+    result = pd.DataFrame(granger_result_prod).applymap(dash_utils.extract_granger_result)
+    # drop columns with None values
+    result = result.dropna(axis=1, how='all')
+    # drop lines with None values
+    result = result.dropna(axis=0, how='all')
+
+    st.markdown(f"""
+    ### Testes de causalidade do tipo granger
+
+    O teste de causalidade do tipo granger (granger test) pode ser usado para testar se a série _x_ 
+    causa a série _y_ no sentido granger, ou seja, se a série x precede a série y, sendo útil para a sua previsão.
+
+    O teste revelou que somente no caso do país {result.columns[0]} foi identificada uma correlação no sentido granger entre 
+    produção e preço em até {len(result)} anos. Neste caso, pode-se dizer que a produção ajuda a explicar
+    a evolução do preço no tempo.
+
+    """)
+
+    #st.write(result)
+
+    # st.write('### Teste de Granger - Preço causa Produção')
+    # granger_result_prod = dash_utils.test_series(y=normalized_price, x=normalized_production, direction = 'y-x')
+    #
+    # result = pd.DataFrame(granger_result_prod).applymap(dash_utils.extract_granger_result)
+    # # drop columns with None values
+    # result = result.dropna(axis=1, how='all')
+    # # drop lines with None values
+    # result = result.dropna(axis=0, how='all')
+    #
+    # st.write('### Teste de Granger - Consumo causa Preço')
+    # granger_result_cons = dash_utils.test_series(y=df_price_pct_change, x=df_consump_pct_change, direction = 'x-y')
+    #
+    # result = pd.DataFrame(granger_result_cons).applymap(dash_utils.extract_granger_result)
+    # # drop columns with None values
+    # result = result.dropna(axis=1, how='all')
+    # # drop lines with None values
+    # result = result.dropna(axis=0, how='all')
 
