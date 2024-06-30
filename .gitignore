@@ -1,5 +1,6 @@
 other/*
-#.vscode/*
+tmp/*
+.venv_autogluon/*
 # intelij
 .idea/*
 # Streamlit
