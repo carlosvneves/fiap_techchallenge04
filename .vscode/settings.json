@@ -1,3 +1,6 @@
 {
-    "python.analysis.extraPaths":[".venv_win/Lib",".venv_win/Lib/site-packages"],
+    "python.analysis.extraPaths":[".venv_win/Lib",
+    ".venv_win/Lib/site-packages", 
+    ".venv_autogluon/Lib", 
+    ".venv_autogluon/lib/python3.11/site-packages",],
 }

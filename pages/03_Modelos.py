@@ -1,9 +1,7 @@
 import pandas as pd
 import streamlit as st
-
-from prophet import Prophet
-from prophet.plot import plot_plotly, plot_components_plotly
-from prophet.plot import add_changepoints_to_plot
+import utils.prophet_model as prophet_model
+import utils.autogluon_model as autogluon_model
 
 # load data
 petr_brent = st.session_state.petr_brent
@@ -14,58 +12,43 @@ st.markdown(
 )
 
 # build tabs
-tab1, tab2, tab3 = st.tabs(["Prophet", "Pycaret - Univariado", "XGBoost - Multivariado"])
+tab1, tab2, tab3 = st.tabs(["Prophet", "Autogluon - Multivariado", "XGBoost - Multivariado"])
 
 # prophet model
 with tab1:
+    # previsão para 180 dias
     st.markdown("""---""")
 
-    anomalize_df = pd.read_csv('data/anomalyze_df.csv')
+    model, forecast = prophet_model.prophet_model()
     
-    df_ds = anomalize_df[['date','observed_clean']]#pd.read_csv('data/price.csv').drop(axis=1, columns=['Unnamed: 0']) #petr_brent[['DATE','VALUE (US$)']]
-
-    df_ds.columns = ['ds','y']
-
-
-    #m = Prophet(changepoint_prior_scale=0.5, changepoint_range=0.8)
-    # subprime crisis
-    cps = ['2006-12-01','2007-02-01','2008-03-01','2008-09-15', '2008-09-29','2001-03-01',
-           '2010-01-01', '2012-01-01','2014-01-01', '2016-01-01', '2018-01-01', '2020-03-01','2021-06-01',
-           '2022-02-22', '2023-03-01', '2023-12-01']
-
-
-    m = Prophet(changepoint_prior_scale=0.1, changepoint_range=0.8, changepoints=cps)
-    m.fit(df_ds)
-
-    # six months forecast
-    future = m.make_future_dataframe(periods=180)
-
-    forecast = m.predict(future)
-    forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-
-    container = st.container(border=True)
-
-    container.plotly_chart(plot_components_plotly(m, forecast))
+    st.plotly_chart(prophet_model.get_forecast_plotly(model, forecast))
 
     st.markdown("""---""")
 
-    fig = plot_plotly(m, forecast)
-
-    st.plotly_chart(fig)
+    st.plotly_chart(prophet_model.get_forecast_plotly_components(model, forecast))
 
     st.markdown("""---""")
 
-    fig = m.plot(forecast)
-    a = add_changepoints_to_plot(fig.gca(), m, forecast)
-    st.pyplot(fig)
+    st.pyplot(prophet_model.get_forecast_changepoints(model, forecast))
 
 
 with tab2:
-    st.write("Pycaret - Univariado")
+    import matplotlib.pyplot as plt 
     
-    
+    st.write("Autogluon - Multivariado")
 
+    with st.spinner("Carregando o modelo..."):
+        predictor, df_mult_train, df_mult_test = autogluon_model.autogluon_model(load=True)
+    # insample predictions
+    with st.spinner("Realizando as previsões (dentro da amostra)..."):
+        predictions = autogluon_model.predict(df_mult_train, known_covariates=df_mult_test, predictor=predictor)
+    st.write(predictions)
+     
+    # fig, ax = plt.figure(figsize=(10, 9))
+    # autogluon_model.get_forecast_chart(df_mult_test, predictions, predictor)
 
+    st.pyplot(autogluon_model.get_forecast_chart(df_mult_test, predictions, predictor), )
+        
 
 with tab3:
     st.write("XGBoost - Multivariado")
