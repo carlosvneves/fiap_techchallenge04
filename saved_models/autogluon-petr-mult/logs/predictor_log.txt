@@ -505,3 +505,1998 @@ Loading predictor from path saved_models/autogluon-petr-mult
 Model not specified in predict, will default to the model with the best validation score: Naive
 Model not specified in predict, will default to the model with the best validation score: Naive
 Model not specified in predict, will default to the model with the best validation score: Naive
+Beginning AutoGluon training... Time limit = 600s
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       14.10 GB / 31.74 GB (44.4%)
+Disk Space Avail:   179.71 GB / 930.09 GB (19.3%)
+===================================================
+Setting presets to: chronos_ensemble
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': SQL,
+ 'hyperparameters': {'Chronos': {'model_path': 'small'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+Inferred time series frequency: 'D'
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+
+Provided data contains following columns:
+	target: 'y'
+	known_covariates:
+		categorical:        []
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'SQL'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+
+Starting training. Start time is 2024-07-01 19:16:35
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[small]', 'TemporalFusionTransformer', 'PatchTST']
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 599.8s of remaining time.
+	-5.2057       = Validation score (-SQL)
+	10.84   s     = Training runtime
+	2.44    s     = Validation (prediction) runtime
+Training timeseries model RecursiveTabular. Training for up to 97.8s of the 586.5s of remaining time.
+	-4.2783       = Validation score (-SQL)
+	30.28   s     = Training runtime
+	3.16    s     = Validation (prediction) runtime
+Training timeseries model DirectTabular. Training for up to 110.6s of the 553.1s of remaining time.
+	-5.8552       = Validation score (-SQL)
+	53.27   s     = Training runtime
+	0.16    s     = Validation (prediction) runtime
+Training timeseries model Chronos[small]. Training for up to 124.9s of the 499.6s of remaining time.
+	-5.6259       = Validation score (-SQL)
+	53.37   s     = Training runtime
+	6.14    s     = Validation (prediction) runtime
+Training timeseries model TemporalFusionTransformer. Training for up to 146.7s of the 440.1s of remaining time.
+	-5.1848       = Validation score (-SQL)
+	144.22  s     = Training runtime
+	0.06    s     = Validation (prediction) runtime
+Training timeseries model PatchTST. Training for up to 147.9s of the 295.8s of remaining time.
+	-3.2610       = Validation score (-SQL)
+	144.70  s     = Training runtime
+	0.46    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+	Ensemble weights: {'PatchTST': 1.0}
+	-3.2610       = Validation score (-SQL)
+	2.57    s     = Training runtime
+	0.46    s     = Validation (prediction) runtime
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[small]', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Total runtime: 452.01 s
+Best model: PatchTST
+Best model score: -3.2610
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Beginning AutoGluon training... Time limit = 600s
+Beginning AutoGluon training... Time limit = 600s
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       14.62 GB / 31.74 GB (46.1%)
+Disk Space Avail:   179.15 GB / 930.09 GB (19.3%)
+===================================================
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       14.62 GB / 31.74 GB (46.1%)
+Disk Space Avail:   179.15 GB / 930.09 GB (19.3%)
+===================================================
+Setting presets to: chronos_large_ensemble
+Setting presets to: chronos_large_ensemble
+
+Fitting with arguments:
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': SQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+{'enable_ensemble': True,
+ 'eval_metric': SQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+Inferred time series frequency: 'D'
+Inferred time series frequency: 'D'
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+
+Provided data contains following columns:
+
+Provided data contains following columns:
+	target: 'y'
+	target: 'y'
+	known_covariates:
+	known_covariates:
+		categorical:        []
+		categorical:        []
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'SQL'
+
+AutoGluon will gauge predictive performance using evaluation metric: 'SQL'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+===================================================
+
+Starting training. Start time is 2024-07-01 22:24:21
+
+Starting training. Start time is 2024-07-01 22:24:21
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+	-5.2057       = Validation score (-SQL)
+	-5.2057       = Validation score (-SQL)
+	11.29   s     = Training runtime
+	11.29   s     = Training runtime
+	2.67    s     = Validation (prediction) runtime
+	2.67    s     = Validation (prediction) runtime
+Training timeseries model RecursiveTabular. Training for up to 97.7s of the 586.0s of remaining time.
+Training timeseries model RecursiveTabular. Training for up to 97.7s of the 586.0s of remaining time.
+	-4.2783       = Validation score (-SQL)
+	-4.2783       = Validation score (-SQL)
+	25.40   s     = Training runtime
+	25.40   s     = Training runtime
+	2.98    s     = Validation (prediction) runtime
+	2.98    s     = Validation (prediction) runtime
+Training timeseries model DirectTabular. Training for up to 111.5s of the 557.6s of remaining time.
+Training timeseries model DirectTabular. Training for up to 111.5s of the 557.6s of remaining time.
+	-5.8551       = Validation score (-SQL)
+	-5.8551       = Validation score (-SQL)
+	53.67   s     = Training runtime
+	53.67   s     = Training runtime
+	0.15    s     = Validation (prediction) runtime
+	0.15    s     = Validation (prediction) runtime
+Training timeseries model Chronos[large]. Training for up to 125.9s of the 503.8s of remaining time.
+Training timeseries model Chronos[large]. Training for up to 125.9s of the 503.8s of remaining time.
+	Time limit exceeded... Skipping Chronos[large].
+	Time limit exceeded... Skipping Chronos[large].
+Training timeseries model TemporalFusionTransformer. Training for up to 120.2s of the 360.6s of remaining time.
+Training timeseries model TemporalFusionTransformer. Training for up to 120.2s of the 360.6s of remaining time.
+	-4.5085       = Validation score (-SQL)
+	-4.5085       = Validation score (-SQL)
+	118.02  s     = Training runtime
+	118.02  s     = Training runtime
+	0.06    s     = Validation (prediction) runtime
+	0.06    s     = Validation (prediction) runtime
+Training timeseries model PatchTST. Training for up to 121.2s of the 242.4s of remaining time.
+Training timeseries model PatchTST. Training for up to 121.2s of the 242.4s of remaining time.
+	-3.3356       = Validation score (-SQL)
+	-3.3356       = Validation score (-SQL)
+	118.88  s     = Training runtime
+	118.88  s     = Training runtime
+	0.05    s     = Validation (prediction) runtime
+	0.05    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+Fitting simple weighted ensemble.
+	Ensemble weights: {'PatchTST': 0.88, 'TemporalFusionTransformer': 0.12}
+	Ensemble weights: {'PatchTST': 0.88, 'TemporalFusionTransformer': 0.12}
+	-3.2929       = Validation score (-SQL)
+	-3.2929       = Validation score (-SQL)
+	2.74    s     = Training runtime
+	2.74    s     = Training runtime
+	0.11    s     = Validation (prediction) runtime
+	0.11    s     = Validation (prediction) runtime
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Total runtime: 479.36 s
+Total runtime: 479.36 s
+Best model: WeightedEnsemble
+Best model: WeightedEnsemble
+Best model score: -3.2929
+Best model score: -3.2929
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Beginning AutoGluon training... Time limit = 600s
+Beginning AutoGluon training... Time limit = 600s
+Beginning AutoGluon training... Time limit = 600s
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       14.05 GB / 31.74 GB (44.3%)
+Disk Space Avail:   176.26 GB / 930.09 GB (19.0%)
+===================================================
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       14.05 GB / 31.74 GB (44.3%)
+Disk Space Avail:   176.26 GB / 930.09 GB (19.0%)
+===================================================
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       14.05 GB / 31.74 GB (44.3%)
+Disk Space Avail:   176.26 GB / 930.09 GB (19.0%)
+===================================================
+Setting presets to: chronos_large_ensemble
+Setting presets to: chronos_large_ensemble
+Setting presets to: chronos_large_ensemble
+
+Fitting with arguments:
+
+Fitting with arguments:
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': RMSE,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+{'enable_ensemble': True,
+ 'eval_metric': RMSE,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+{'enable_ensemble': True,
+ 'eval_metric': RMSE,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+Inferred time series frequency: 'D'
+Inferred time series frequency: 'D'
+Inferred time series frequency: 'D'
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+
+Provided data contains following columns:
+
+Provided data contains following columns:
+
+Provided data contains following columns:
+	target: 'y'
+	target: 'y'
+	target: 'y'
+	known_covariates:
+	known_covariates:
+	known_covariates:
+		categorical:        []
+		categorical:        []
+		categorical:        []
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'RMSE'
+
+AutoGluon will gauge predictive performance using evaluation metric: 'RMSE'
+
+AutoGluon will gauge predictive performance using evaluation metric: 'RMSE'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+===================================================
+===================================================
+
+Starting training. Start time is 2024-07-01 22:34:55
+
+Starting training. Start time is 2024-07-01 22:34:55
+
+Starting training. Start time is 2024-07-01 22:34:55
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+	-15.8610      = Validation score (-RMSE)
+	-15.8610      = Validation score (-RMSE)
+	-15.8610      = Validation score (-RMSE)
+	12.25   s     = Training runtime
+	12.25   s     = Training runtime
+	12.25   s     = Training runtime
+	2.46    s     = Validation (prediction) runtime
+	2.46    s     = Validation (prediction) runtime
+	2.46    s     = Validation (prediction) runtime
+Training timeseries model RecursiveTabular. Training for up to 97.5s of the 585.2s of remaining time.
+Training timeseries model RecursiveTabular. Training for up to 97.5s of the 585.2s of remaining time.
+Training timeseries model RecursiveTabular. Training for up to 97.5s of the 585.2s of remaining time.
+	-15.4157      = Validation score (-RMSE)
+	-15.4157      = Validation score (-RMSE)
+	-15.4157      = Validation score (-RMSE)
+	34.47   s     = Training runtime
+	34.47   s     = Training runtime
+	34.47   s     = Training runtime
+	2.45    s     = Validation (prediction) runtime
+	2.45    s     = Validation (prediction) runtime
+	2.45    s     = Validation (prediction) runtime
+Training timeseries model DirectTabular. Training for up to 109.7s of the 548.3s of remaining time.
+Training timeseries model DirectTabular. Training for up to 109.7s of the 548.3s of remaining time.
+Training timeseries model DirectTabular. Training for up to 109.7s of the 548.3s of remaining time.
+	-22.4960      = Validation score (-RMSE)
+	-22.4960      = Validation score (-RMSE)
+	-22.4960      = Validation score (-RMSE)
+	11.33   s     = Training runtime
+	11.33   s     = Training runtime
+	11.33   s     = Training runtime
+	0.11    s     = Validation (prediction) runtime
+	0.11    s     = Validation (prediction) runtime
+	0.11    s     = Validation (prediction) runtime
+Training timeseries model Chronos[large]. Training for up to 134.2s of the 536.9s of remaining time.
+Training timeseries model Chronos[large]. Training for up to 134.2s of the 536.9s of remaining time.
+Training timeseries model Chronos[large]. Training for up to 134.2s of the 536.9s of remaining time.
+	-14.2033      = Validation score (-RMSE)
+	-14.2033      = Validation score (-RMSE)
+	-14.2033      = Validation score (-RMSE)
+	87.09   s     = Training runtime
+	87.09   s     = Training runtime
+	87.09   s     = Training runtime
+	21.84   s     = Validation (prediction) runtime
+	21.84   s     = Validation (prediction) runtime
+	21.84   s     = Validation (prediction) runtime
+Training timeseries model TemporalFusionTransformer. Training for up to 142.6s of the 427.9s of remaining time.
+Training timeseries model TemporalFusionTransformer. Training for up to 142.6s of the 427.9s of remaining time.
+Training timeseries model TemporalFusionTransformer. Training for up to 142.6s of the 427.9s of remaining time.
+	-15.6503      = Validation score (-RMSE)
+	-15.6503      = Validation score (-RMSE)
+	-15.6503      = Validation score (-RMSE)
+	139.90  s     = Training runtime
+	139.90  s     = Training runtime
+	139.90  s     = Training runtime
+	0.06    s     = Validation (prediction) runtime
+	0.06    s     = Validation (prediction) runtime
+	0.06    s     = Validation (prediction) runtime
+Training timeseries model PatchTST. Training for up to 144.0s of the 287.9s of remaining time.
+Training timeseries model PatchTST. Training for up to 144.0s of the 287.9s of remaining time.
+Training timeseries model PatchTST. Training for up to 144.0s of the 287.9s of remaining time.
+	-11.3720      = Validation score (-RMSE)
+	-11.3720      = Validation score (-RMSE)
+	-11.3720      = Validation score (-RMSE)
+	140.85  s     = Training runtime
+	140.85  s     = Training runtime
+	140.85  s     = Training runtime
+	0.04    s     = Validation (prediction) runtime
+	0.04    s     = Validation (prediction) runtime
+	0.04    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+Fitting simple weighted ensemble.
+Fitting simple weighted ensemble.
+	Ensemble weights: {'DirectTabular': 0.1, 'PatchTST': 0.82, 'TemporalFusionTransformer': 0.08}
+	Ensemble weights: {'DirectTabular': 0.1, 'PatchTST': 0.82, 'TemporalFusionTransformer': 0.08}
+	Ensemble weights: {'DirectTabular': 0.1, 'PatchTST': 0.82, 'TemporalFusionTransformer': 0.08}
+	-11.0614      = Validation score (-RMSE)
+	-11.0614      = Validation score (-RMSE)
+	-11.0614      = Validation score (-RMSE)
+	3.02    s     = Training runtime
+	3.02    s     = Training runtime
+	3.02    s     = Training runtime
+	0.21    s     = Validation (prediction) runtime
+	0.21    s     = Validation (prediction) runtime
+	0.21    s     = Validation (prediction) runtime
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Total runtime: 456.09 s
+Total runtime: 456.09 s
+Total runtime: 456.09 s
+Best model: WeightedEnsemble
+Best model: WeightedEnsemble
+Best model: WeightedEnsemble
+Best model score: -11.0614
+Best model score: -11.0614
+Best model score: -11.0614
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Beginning AutoGluon training... Time limit = 600s
+Beginning AutoGluon training... Time limit = 600s
+Beginning AutoGluon training... Time limit = 600s
+Beginning AutoGluon training... Time limit = 600s
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       14.35 GB / 31.74 GB (45.2%)
+Disk Space Avail:   176.31 GB / 930.09 GB (19.0%)
+===================================================
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       14.35 GB / 31.74 GB (45.2%)
+Disk Space Avail:   176.31 GB / 930.09 GB (19.0%)
+===================================================
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       14.35 GB / 31.74 GB (45.2%)
+Disk Space Avail:   176.31 GB / 930.09 GB (19.0%)
+===================================================
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       14.35 GB / 31.74 GB (45.2%)
+Disk Space Avail:   176.31 GB / 930.09 GB (19.0%)
+===================================================
+Setting presets to: chronos_large_ensemble
+Setting presets to: chronos_large_ensemble
+Setting presets to: chronos_large_ensemble
+Setting presets to: chronos_large_ensemble
+
+Fitting with arguments:
+
+Fitting with arguments:
+
+Fitting with arguments:
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': SQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+{'enable_ensemble': True,
+ 'eval_metric': SQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+{'enable_ensemble': True,
+ 'eval_metric': SQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+{'enable_ensemble': True,
+ 'eval_metric': SQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+Inferred time series frequency: 'D'
+Inferred time series frequency: 'D'
+Inferred time series frequency: 'D'
+Inferred time series frequency: 'D'
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+
+Provided data contains following columns:
+
+Provided data contains following columns:
+
+Provided data contains following columns:
+
+Provided data contains following columns:
+	target: 'y'
+	target: 'y'
+	target: 'y'
+	target: 'y'
+	known_covariates:
+	known_covariates:
+	known_covariates:
+	known_covariates:
+		categorical:        []
+		categorical:        []
+		categorical:        []
+		categorical:        []
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'SQL'
+
+AutoGluon will gauge predictive performance using evaluation metric: 'SQL'
+
+AutoGluon will gauge predictive performance using evaluation metric: 'SQL'
+
+AutoGluon will gauge predictive performance using evaluation metric: 'SQL'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+===================================================
+===================================================
+===================================================
+
+Starting training. Start time is 2024-07-01 22:44:32
+
+Starting training. Start time is 2024-07-01 22:44:32
+
+Starting training. Start time is 2024-07-01 22:44:32
+
+Starting training. Start time is 2024-07-01 22:44:32
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+	-5.2057       = Validation score (-SQL)
+	-5.2057       = Validation score (-SQL)
+	-5.2057       = Validation score (-SQL)
+	-5.2057       = Validation score (-SQL)
+	11.81   s     = Training runtime
+	11.81   s     = Training runtime
+	11.81   s     = Training runtime
+	11.81   s     = Training runtime
+	2.91    s     = Validation (prediction) runtime
+	2.91    s     = Validation (prediction) runtime
+	2.91    s     = Validation (prediction) runtime
+	2.91    s     = Validation (prediction) runtime
+Training timeseries model RecursiveTabular. Training for up to 97.5s of the 585.2s of remaining time.
+Training timeseries model RecursiveTabular. Training for up to 97.5s of the 585.2s of remaining time.
+Training timeseries model RecursiveTabular. Training for up to 97.5s of the 585.2s of remaining time.
+Training timeseries model RecursiveTabular. Training for up to 97.5s of the 585.2s of remaining time.
+	-4.2783       = Validation score (-SQL)
+	-4.2783       = Validation score (-SQL)
+	-4.2783       = Validation score (-SQL)
+	-4.2783       = Validation score (-SQL)
+	27.03   s     = Training runtime
+	27.03   s     = Training runtime
+	27.03   s     = Training runtime
+	27.03   s     = Training runtime
+	3.26    s     = Validation (prediction) runtime
+	3.26    s     = Validation (prediction) runtime
+	3.26    s     = Validation (prediction) runtime
+	3.26    s     = Validation (prediction) runtime
+Training timeseries model DirectTabular. Training for up to 111.0s of the 554.9s of remaining time.
+Training timeseries model DirectTabular. Training for up to 111.0s of the 554.9s of remaining time.
+Training timeseries model DirectTabular. Training for up to 111.0s of the 554.9s of remaining time.
+Training timeseries model DirectTabular. Training for up to 111.0s of the 554.9s of remaining time.
+	-5.8549       = Validation score (-SQL)
+	-5.8549       = Validation score (-SQL)
+	-5.8549       = Validation score (-SQL)
+	-5.8549       = Validation score (-SQL)
+	53.15   s     = Training runtime
+	53.15   s     = Training runtime
+	53.15   s     = Training runtime
+	53.15   s     = Training runtime
+	0.15    s     = Validation (prediction) runtime
+	0.15    s     = Validation (prediction) runtime
+	0.15    s     = Validation (prediction) runtime
+	0.15    s     = Validation (prediction) runtime
+Training timeseries model Chronos[large]. Training for up to 125.4s of the 501.6s of remaining time.
+Training timeseries model Chronos[large]. Training for up to 125.4s of the 501.6s of remaining time.
+Training timeseries model Chronos[large]. Training for up to 125.4s of the 501.6s of remaining time.
+Training timeseries model Chronos[large]. Training for up to 125.4s of the 501.6s of remaining time.
+	-4.8846       = Validation score (-SQL)
+	-4.8846       = Validation score (-SQL)
+	-4.8846       = Validation score (-SQL)
+	-4.8846       = Validation score (-SQL)
+	97.22   s     = Training runtime
+	97.22   s     = Training runtime
+	97.22   s     = Training runtime
+	97.22   s     = Training runtime
+	24.34   s     = Validation (prediction) runtime
+	24.34   s     = Validation (prediction) runtime
+	24.34   s     = Validation (prediction) runtime
+	24.34   s     = Validation (prediction) runtime
+Training timeseries model TemporalFusionTransformer. Training for up to 126.7s of the 380.0s of remaining time.
+Training timeseries model TemporalFusionTransformer. Training for up to 126.7s of the 380.0s of remaining time.
+Training timeseries model TemporalFusionTransformer. Training for up to 126.7s of the 380.0s of remaining time.
+Training timeseries model TemporalFusionTransformer. Training for up to 126.7s of the 380.0s of remaining time.
+	-5.2541       = Validation score (-SQL)
+	-5.2541       = Validation score (-SQL)
+	-5.2541       = Validation score (-SQL)
+	-5.2541       = Validation score (-SQL)
+	124.40  s     = Training runtime
+	124.40  s     = Training runtime
+	124.40  s     = Training runtime
+	124.40  s     = Training runtime
+	0.06    s     = Validation (prediction) runtime
+	0.06    s     = Validation (prediction) runtime
+	0.06    s     = Validation (prediction) runtime
+	0.06    s     = Validation (prediction) runtime
+Training timeseries model PatchTST. Training for up to 127.8s of the 255.5s of remaining time.
+Training timeseries model PatchTST. Training for up to 127.8s of the 255.5s of remaining time.
+Training timeseries model PatchTST. Training for up to 127.8s of the 255.5s of remaining time.
+Training timeseries model PatchTST. Training for up to 127.8s of the 255.5s of remaining time.
+	Time limit exceeded... Skipping PatchTST.
+	Time limit exceeded... Skipping PatchTST.
+	Time limit exceeded... Skipping PatchTST.
+	Time limit exceeded... Skipping PatchTST.
+Not fitting ensemble due to lack of time remaining. Time left: -90.2 seconds
+Not fitting ensemble due to lack of time remaining. Time left: -90.2 seconds
+Not fitting ensemble due to lack of time remaining. Time left: -90.2 seconds
+Not fitting ensemble due to lack of time remaining. Time left: -90.2 seconds
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer']
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer']
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer']
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer']
+Total runtime: 690.20 s
+Total runtime: 690.20 s
+Total runtime: 690.20 s
+Total runtime: 690.20 s
+Best model: RecursiveTabular
+Best model: RecursiveTabular
+Best model: RecursiveTabular
+Best model: RecursiveTabular
+Best model score: -4.2783
+Best model score: -4.2783
+Best model score: -4.2783
+Best model score: -4.2783
+Beginning AutoGluon training... Time limit = 600s
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       17.20 GB / 31.74 GB (54.2%)
+Disk Space Avail:   176.40 GB / 930.09 GB (19.0%)
+===================================================
+Setting presets to: chronos_large_ensemble
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': SQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+Inferred time series frequency: 'D'
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+
+Provided data contains following columns:
+	target: 'y'
+	known_covariates:
+		categorical:        []
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'SQL'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+
+Starting training. Start time is 2024-07-01 22:58:17
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Training timeseries model SeasonalNaive. Training for up to 85.0s of the 595.3s of remaining time.
+	-5.2057       = Validation score (-SQL)
+	11.43   s     = Training runtime
+	2.47    s     = Validation (prediction) runtime
+Training timeseries model RecursiveTabular. Training for up to 96.9s of the 581.4s of remaining time.
+	-4.2783       = Validation score (-SQL)
+	24.72   s     = Training runtime
+	2.36    s     = Validation (prediction) runtime
+Training timeseries model DirectTabular. Training for up to 110.9s of the 554.3s of remaining time.
+	-5.8549       = Validation score (-SQL)
+	50.15   s     = Training runtime
+	0.15    s     = Validation (prediction) runtime
+Training timeseries model Chronos[large]. Training for up to 126.0s of the 504.0s of remaining time.
+	-4.8846       = Validation score (-SQL)
+	85.68   s     = Training runtime
+	19.85   s     = Validation (prediction) runtime
+Training timeseries model TemporalFusionTransformer. Training for up to 132.8s of the 398.4s of remaining time.
+	Time limit exceeded... Skipping TemporalFusionTransformer.
+Training timeseries model PatchTST. Training for up to 121.0s of the 241.9s of remaining time.
+Beginning AutoGluon training... Time limit = 600s
+Beginning AutoGluon training... Time limit = 600s
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       15.09 GB / 31.74 GB (47.5%)
+Disk Space Avail:   176.41 GB / 930.09 GB (19.0%)
+===================================================
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       15.09 GB / 31.74 GB (47.5%)
+Disk Space Avail:   176.41 GB / 930.09 GB (19.0%)
+===================================================
+Setting presets to: chronos_large_ensemble
+Setting presets to: chronos_large_ensemble
+
+Fitting with arguments:
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': SQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+{'enable_ensemble': True,
+ 'eval_metric': SQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+Inferred time series frequency: 'D'
+Inferred time series frequency: 'D'
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+
+Provided data contains following columns:
+
+Provided data contains following columns:
+	target: 'y'
+	target: 'y'
+	known_covariates:
+	known_covariates:
+		categorical:        []
+		categorical:        []
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'SQL'
+
+AutoGluon will gauge predictive performance using evaluation metric: 'SQL'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+===================================================
+
+Starting training. Start time is 2024-07-01 23:04:24
+
+Starting training. Start time is 2024-07-01 23:04:24
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+	-5.2057       = Validation score (-SQL)
+	-5.2057       = Validation score (-SQL)
+	3.96    s     = Training runtime
+	3.96    s     = Training runtime
+	0.04    s     = Validation (prediction) runtime
+	0.04    s     = Validation (prediction) runtime
+Training timeseries model RecursiveTabular. Training for up to 99.3s of the 595.9s of remaining time.
+Training timeseries model RecursiveTabular. Training for up to 99.3s of the 595.9s of remaining time.
+	-4.2783       = Validation score (-SQL)
+	-4.2783       = Validation score (-SQL)
+	26.66   s     = Training runtime
+	26.66   s     = Training runtime
+	2.87    s     = Validation (prediction) runtime
+	2.87    s     = Validation (prediction) runtime
+Training timeseries model DirectTabular. Training for up to 113.3s of the 566.4s of remaining time.
+Training timeseries model DirectTabular. Training for up to 113.3s of the 566.4s of remaining time.
+	-5.3380       = Validation score (-SQL)
+	-5.3380       = Validation score (-SQL)
+	61.21   s     = Training runtime
+	61.21   s     = Training runtime
+	0.16    s     = Validation (prediction) runtime
+	0.16    s     = Validation (prediction) runtime
+Training timeseries model Chronos[large]. Training for up to 126.3s of the 505.0s of remaining time.
+Training timeseries model Chronos[large]. Training for up to 126.3s of the 505.0s of remaining time.
+	-3.2664       = Validation score (-SQL)
+	-3.2664       = Validation score (-SQL)
+	118.66  s     = Training runtime
+	118.66  s     = Training runtime
+	0.05    s     = Validation (prediction) runtime
+	0.05    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+Fitting simple weighted ensemble.
+	Ensemble weights: {'PatchTST': 1.0}
+	Ensemble weights: {'PatchTST': 1.0}
+	-3.2664       = Validation score (-SQL)
+	-3.2664       = Validation score (-SQL)
+	3.18    s     = Training runtime
+	3.18    s     = Training runtime
+	0.05    s     = Validation (prediction) runtime
+	0.05    s     = Validation (prediction) runtime
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'PatchTST', 'WeightedEnsemble']
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'PatchTST', 'WeightedEnsemble']
+Total runtime: 476.15 s
+Total runtime: 476.15 s
+Best model: PatchTST
+Best model: PatchTST
+Best model score: -3.2664
+Best model score: -3.2664
+	-5.8158       = Validation score (-SQL)
+	-5.8158       = Validation score (-SQL)
+	78.75   s     = Training runtime
+	78.75   s     = Training runtime
+	17.60   s     = Validation (prediction) runtime
+	17.60   s     = Validation (prediction) runtime
+Training timeseries model TemporalFusionTransformer. Training for up to 136.2s of the 408.6s of remaining time.
+Training timeseries model TemporalFusionTransformer. Training for up to 136.2s of the 408.6s of remaining time.
+	-5.5530       = Validation score (-SQL)
+	-5.5530       = Validation score (-SQL)
+	133.64  s     = Training runtime
+	133.64  s     = Training runtime
+	0.06    s     = Validation (prediction) runtime
+	0.06    s     = Validation (prediction) runtime
+Training timeseries model PatchTST. Training for up to 137.5s of the 274.9s of remaining time.
+Training timeseries model PatchTST. Training for up to 137.5s of the 274.9s of remaining time.
+	-3.2754       = Validation score (-SQL)
+	-3.2754       = Validation score (-SQL)
+	134.55  s     = Training runtime
+	134.55  s     = Training runtime
+	0.04    s     = Validation (prediction) runtime
+	0.04    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+Fitting simple weighted ensemble.
+	Ensemble weights: {'PatchTST': 1.0}
+	Ensemble weights: {'PatchTST': 1.0}
+	-3.2754       = Validation score (-SQL)
+	-3.2754       = Validation score (-SQL)
+	2.78    s     = Training runtime
+	2.78    s     = Training runtime
+	0.04    s     = Validation (prediction) runtime
+	0.04    s     = Validation (prediction) runtime
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Total runtime: 462.54 s
+Total runtime: 462.54 s
+Best model: PatchTST
+Best model: PatchTST
+Best model score: -3.2754
+Best model score: -3.2754
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Beginning AutoGluon training... Time limit = 600s
+Beginning AutoGluon training... Time limit = 600s
+Beginning AutoGluon training... Time limit = 600s
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       16.01 GB / 31.74 GB (50.5%)
+Disk Space Avail:   176.43 GB / 930.09 GB (19.0%)
+===================================================
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       16.01 GB / 31.74 GB (50.5%)
+Disk Space Avail:   176.43 GB / 930.09 GB (19.0%)
+===================================================
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       16.01 GB / 31.74 GB (50.5%)
+Disk Space Avail:   176.43 GB / 930.09 GB (19.0%)
+===================================================
+Setting presets to: chronos_large_ensemble
+Setting presets to: chronos_large_ensemble
+Setting presets to: chronos_large_ensemble
+
+Fitting with arguments:
+
+Fitting with arguments:
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': WQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+{'enable_ensemble': True,
+ 'eval_metric': WQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+{'enable_ensemble': True,
+ 'eval_metric': WQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+Inferred time series frequency: 'D'
+Inferred time series frequency: 'D'
+Inferred time series frequency: 'D'
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+
+Provided data contains following columns:
+
+Provided data contains following columns:
+
+Provided data contains following columns:
+	target: 'y'
+	target: 'y'
+	target: 'y'
+	known_covariates:
+	known_covariates:
+	known_covariates:
+		categorical:        []
+		categorical:        []
+		categorical:        []
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'WQL'
+
+AutoGluon will gauge predictive performance using evaluation metric: 'WQL'
+
+AutoGluon will gauge predictive performance using evaluation metric: 'WQL'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+===================================================
+===================================================
+
+Starting training. Start time is 2024-07-01 23:13:26
+
+Starting training. Start time is 2024-07-01 23:13:26
+
+Starting training. Start time is 2024-07-01 23:13:26
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+	-0.1162       = Validation score (-WQL)
+	-0.1162       = Validation score (-WQL)
+	-0.1162       = Validation score (-WQL)
+	10.66   s     = Training runtime
+	10.66   s     = Training runtime
+	10.66   s     = Training runtime
+	2.59    s     = Validation (prediction) runtime
+	2.59    s     = Validation (prediction) runtime
+	2.59    s     = Validation (prediction) runtime
+Training timeseries model RecursiveTabular. Training for up to 97.8s of the 586.7s of remaining time.
+Training timeseries model RecursiveTabular. Training for up to 97.8s of the 586.7s of remaining time.
+Training timeseries model RecursiveTabular. Training for up to 97.8s of the 586.7s of remaining time.
+	-0.1007       = Validation score (-WQL)
+	-0.1007       = Validation score (-WQL)
+	-0.1007       = Validation score (-WQL)
+	21.53   s     = Training runtime
+	21.53   s     = Training runtime
+	21.53   s     = Training runtime
+	2.51    s     = Validation (prediction) runtime
+	2.51    s     = Validation (prediction) runtime
+	2.51    s     = Validation (prediction) runtime
+Training timeseries model DirectTabular. Training for up to 112.5s of the 562.7s of remaining time.
+Training timeseries model DirectTabular. Training for up to 112.5s of the 562.7s of remaining time.
+Training timeseries model DirectTabular. Training for up to 112.5s of the 562.7s of remaining time.
+	-0.1357       = Validation score (-WQL)
+	-0.1357       = Validation score (-WQL)
+	-0.1357       = Validation score (-WQL)
+	50.19   s     = Training runtime
+	50.19   s     = Training runtime
+	50.19   s     = Training runtime
+	0.14    s     = Validation (prediction) runtime
+	0.14    s     = Validation (prediction) runtime
+	0.14    s     = Validation (prediction) runtime
+Training timeseries model Chronos[large]. Training for up to 128.1s of the 512.3s of remaining time.
+Training timeseries model Chronos[large]. Training for up to 128.1s of the 512.3s of remaining time.
+Training timeseries model Chronos[large]. Training for up to 128.1s of the 512.3s of remaining time.
+	-0.1096       = Validation score (-WQL)
+	-0.1096       = Validation score (-WQL)
+	-0.1096       = Validation score (-WQL)
+	72.26   s     = Training runtime
+	72.26   s     = Training runtime
+	72.26   s     = Training runtime
+	17.65   s     = Validation (prediction) runtime
+	17.65   s     = Validation (prediction) runtime
+	17.65   s     = Validation (prediction) runtime
+Training timeseries model TemporalFusionTransformer. Training for up to 140.8s of the 422.4s of remaining time.
+Training timeseries model TemporalFusionTransformer. Training for up to 140.8s of the 422.4s of remaining time.
+Training timeseries model TemporalFusionTransformer. Training for up to 140.8s of the 422.4s of remaining time.
+	-0.1093       = Validation score (-WQL)
+	-0.1093       = Validation score (-WQL)
+	-0.1093       = Validation score (-WQL)
+	138.08  s     = Training runtime
+	138.08  s     = Training runtime
+	138.08  s     = Training runtime
+	0.06    s     = Validation (prediction) runtime
+	0.06    s     = Validation (prediction) runtime
+	0.06    s     = Validation (prediction) runtime
+Training timeseries model PatchTST. Training for up to 142.1s of the 284.2s of remaining time.
+Training timeseries model PatchTST. Training for up to 142.1s of the 284.2s of remaining time.
+Training timeseries model PatchTST. Training for up to 142.1s of the 284.2s of remaining time.
+Beginning AutoGluon training... Time limit = 600s
+Beginning AutoGluon training... Time limit = 600s
+Beginning AutoGluon training... Time limit = 600s
+Beginning AutoGluon training... Time limit = 600s
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+AutoGluon will save models to 'saved_models/autogluon-petr-mult'
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       15.89 GB / 31.74 GB (50.1%)
+Disk Space Avail:   176.40 GB / 930.09 GB (19.0%)
+===================================================
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       15.89 GB / 31.74 GB (50.1%)
+Disk Space Avail:   176.40 GB / 930.09 GB (19.0%)
+===================================================
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       15.89 GB / 31.74 GB (50.1%)
+Disk Space Avail:   176.40 GB / 930.09 GB (19.0%)
+===================================================
+=================== System Info ===================
+AutoGluon Version:  1.1.1
+Python Version:     3.11.9
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22635
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       15.89 GB / 31.74 GB (50.1%)
+Disk Space Avail:   176.40 GB / 930.09 GB (19.0%)
+===================================================
+Setting presets to: chronos_large_ensemble
+Setting presets to: chronos_large_ensemble
+Setting presets to: chronos_large_ensemble
+Setting presets to: chronos_large_ensemble
+
+Fitting with arguments:
+
+Fitting with arguments:
+
+Fitting with arguments:
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': WQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+{'enable_ensemble': True,
+ 'eval_metric': WQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+{'enable_ensemble': True,
+ 'eval_metric': WQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+{'enable_ensemble': True,
+ 'eval_metric': WQL,
+ 'hyperparameters': {'Chronos': {'batch_size': 8, 'model_path': 'large'},
+                     'DirectTabular': {},
+                     'PatchTST': {},
+                     'RecursiveTabular': {},
+                     'SeasonalNaive': {},
+                     'TemporalFusionTransformer': {}},
+ 'known_covariates_names': ['hour',
+                            'dayofweek',
+                            'quarter',
+                            'month',
+                            'year',
+                            'dayofyear'],
+ 'num_val_windows': 5,
+ 'prediction_length': 180,
+ 'quantile_levels': [0.1, 0.25, 0.5, 0.75, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'y',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+Inferred time series frequency: 'D'
+Inferred time series frequency: 'D'
+Inferred time series frequency: 'D'
+Inferred time series frequency: 'D'
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+Provided train_data has 8382 rows, 1 time series. Median time series length is 8382 (min=8382, max=8382). 
+
+Provided data contains following columns:
+
+Provided data contains following columns:
+
+Provided data contains following columns:
+
+Provided data contains following columns:
+	target: 'y'
+	target: 'y'
+	target: 'y'
+	target: 'y'
+	known_covariates:
+	known_covariates:
+	known_covariates:
+	known_covariates:
+		categorical:        []
+		categorical:        []
+		categorical:        []
+		categorical:        []
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+		continuous (float): ['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear']
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'WQL'
+
+AutoGluon will gauge predictive performance using evaluation metric: 'WQL'
+
+AutoGluon will gauge predictive performance using evaluation metric: 'WQL'
+
+AutoGluon will gauge predictive performance using evaluation metric: 'WQL'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+===================================================
+===================================================
+===================================================
+
+Starting training. Start time is 2024-07-01 23:19:17
+
+Starting training. Start time is 2024-07-01 23:19:17
+
+Starting training. Start time is 2024-07-01 23:19:17
+
+Starting training. Start time is 2024-07-01 23:19:17
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Models that will be trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST']
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+Training timeseries model SeasonalNaive. Training for up to 85.7s of the 600.0s of remaining time.
+	-0.1162       = Validation score (-WQL)
+	-0.1162       = Validation score (-WQL)
+	-0.1162       = Validation score (-WQL)
+	-0.1162       = Validation score (-WQL)
+	11.43   s     = Training runtime
+	11.43   s     = Training runtime
+	11.43   s     = Training runtime
+	11.43   s     = Training runtime
+	3.19    s     = Validation (prediction) runtime
+	3.19    s     = Validation (prediction) runtime
+	3.19    s     = Validation (prediction) runtime
+	3.19    s     = Validation (prediction) runtime
+Training timeseries model RecursiveTabular. Training for up to 97.6s of the 585.3s of remaining time.
+Training timeseries model RecursiveTabular. Training for up to 97.6s of the 585.3s of remaining time.
+Training timeseries model RecursiveTabular. Training for up to 97.6s of the 585.3s of remaining time.
+Training timeseries model RecursiveTabular. Training for up to 97.6s of the 585.3s of remaining time.
+	-0.1007       = Validation score (-WQL)
+	-0.1007       = Validation score (-WQL)
+	-0.1007       = Validation score (-WQL)
+	-0.1007       = Validation score (-WQL)
+	24.82   s     = Training runtime
+	24.82   s     = Training runtime
+	24.82   s     = Training runtime
+	24.82   s     = Training runtime
+	2.53    s     = Validation (prediction) runtime
+	2.53    s     = Validation (prediction) runtime
+	2.53    s     = Validation (prediction) runtime
+	2.53    s     = Validation (prediction) runtime
+Training timeseries model DirectTabular. Training for up to 111.6s of the 558.0s of remaining time.
+Training timeseries model DirectTabular. Training for up to 111.6s of the 558.0s of remaining time.
+Training timeseries model DirectTabular. Training for up to 111.6s of the 558.0s of remaining time.
+Training timeseries model DirectTabular. Training for up to 111.6s of the 558.0s of remaining time.
+	-0.0776       = Validation score (-WQL)
+	-0.0776       = Validation score (-WQL)
+	-0.0776       = Validation score (-WQL)
+	-0.0776       = Validation score (-WQL)
+	139.20  s     = Training runtime
+	139.20  s     = Training runtime
+	139.20  s     = Training runtime
+	139.20  s     = Training runtime
+	0.05    s     = Validation (prediction) runtime
+	0.05    s     = Validation (prediction) runtime
+	0.05    s     = Validation (prediction) runtime
+	0.05    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+Fitting simple weighted ensemble.
+Fitting simple weighted ensemble.
+Fitting simple weighted ensemble.
+	-0.1274       = Validation score (-WQL)
+	-0.1274       = Validation score (-WQL)
+	-0.1274       = Validation score (-WQL)
+	-0.1274       = Validation score (-WQL)
+	62.73   s     = Training runtime
+	62.73   s     = Training runtime
+	62.73   s     = Training runtime
+	62.73   s     = Training runtime
+	0.57    s     = Validation (prediction) runtime
+	0.57    s     = Validation (prediction) runtime
+	0.57    s     = Validation (prediction) runtime
+	0.57    s     = Validation (prediction) runtime
+Training timeseries model Chronos[large]. Training for up to 123.7s of the 494.6s of remaining time.
+Training timeseries model Chronos[large]. Training for up to 123.7s of the 494.6s of remaining time.
+Training timeseries model Chronos[large]. Training for up to 123.7s of the 494.6s of remaining time.
+Training timeseries model Chronos[large]. Training for up to 123.7s of the 494.6s of remaining time.
+	Ensemble weights: {'PatchTST': 0.91, 'TemporalFusionTransformer': 0.09}
+	Ensemble weights: {'PatchTST': 0.91, 'TemporalFusionTransformer': 0.09}
+	Ensemble weights: {'PatchTST': 0.91, 'TemporalFusionTransformer': 0.09}
+	Ensemble weights: {'PatchTST': 0.91, 'TemporalFusionTransformer': 0.09}
+	-0.0769       = Validation score (-WQL)
+	-0.0769       = Validation score (-WQL)
+	-0.0769       = Validation score (-WQL)
+	-0.0769       = Validation score (-WQL)
+	3.61    s     = Training runtime
+	3.61    s     = Training runtime
+	3.61    s     = Training runtime
+	3.61    s     = Training runtime
+	0.11    s     = Validation (prediction) runtime
+	0.11    s     = Validation (prediction) runtime
+	0.11    s     = Validation (prediction) runtime
+	0.11    s     = Validation (prediction) runtime
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Total runtime: 458.74 s
+Total runtime: 458.74 s
+Total runtime: 458.74 s
+Total runtime: 458.74 s
+Best model: WeightedEnsemble
+Best model: WeightedEnsemble
+Best model: WeightedEnsemble
+Best model: WeightedEnsemble
+Best model score: -0.0769
+Best model score: -0.0769
+Best model score: -0.0769
+Best model score: -0.0769
+	-0.1096       = Validation score (-WQL)
+	-0.1096       = Validation score (-WQL)
+	-0.1096       = Validation score (-WQL)
+	-0.1096       = Validation score (-WQL)
+	69.99   s     = Training runtime
+	69.99   s     = Training runtime
+	69.99   s     = Training runtime
+	69.99   s     = Training runtime
+	17.83   s     = Validation (prediction) runtime
+	17.83   s     = Validation (prediction) runtime
+	17.83   s     = Validation (prediction) runtime
+	17.83   s     = Validation (prediction) runtime
+Training timeseries model TemporalFusionTransformer. Training for up to 135.6s of the 406.8s of remaining time.
+Training timeseries model TemporalFusionTransformer. Training for up to 135.6s of the 406.8s of remaining time.
+Training timeseries model TemporalFusionTransformer. Training for up to 135.6s of the 406.8s of remaining time.
+Training timeseries model TemporalFusionTransformer. Training for up to 135.6s of the 406.8s of remaining time.
+	-0.1190       = Validation score (-WQL)
+	-0.1190       = Validation score (-WQL)
+	-0.1190       = Validation score (-WQL)
+	-0.1190       = Validation score (-WQL)
+	132.99  s     = Training runtime
+	132.99  s     = Training runtime
+	132.99  s     = Training runtime
+	132.99  s     = Training runtime
+	0.06    s     = Validation (prediction) runtime
+	0.06    s     = Validation (prediction) runtime
+	0.06    s     = Validation (prediction) runtime
+	0.06    s     = Validation (prediction) runtime
+Training timeseries model PatchTST. Training for up to 136.8s of the 273.7s of remaining time.
+Training timeseries model PatchTST. Training for up to 136.8s of the 273.7s of remaining time.
+Training timeseries model PatchTST. Training for up to 136.8s of the 273.7s of remaining time.
+Training timeseries model PatchTST. Training for up to 136.8s of the 273.7s of remaining time.
+	-0.0693       = Validation score (-WQL)
+	-0.0693       = Validation score (-WQL)
+	-0.0693       = Validation score (-WQL)
+	-0.0693       = Validation score (-WQL)
+	134.04  s     = Training runtime
+	134.04  s     = Training runtime
+	134.04  s     = Training runtime
+	134.04  s     = Training runtime
+	0.04    s     = Validation (prediction) runtime
+	0.04    s     = Validation (prediction) runtime
+	0.04    s     = Validation (prediction) runtime
+	0.04    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+Fitting simple weighted ensemble.
+Fitting simple weighted ensemble.
+Fitting simple weighted ensemble.
+	Ensemble weights: {'PatchTST': 1.0}
+	Ensemble weights: {'PatchTST': 1.0}
+	Ensemble weights: {'PatchTST': 1.0}
+	Ensemble weights: {'PatchTST': 1.0}
+	-0.0693       = Validation score (-WQL)
+	-0.0693       = Validation score (-WQL)
+	-0.0693       = Validation score (-WQL)
+	-0.0693       = Validation score (-WQL)
+	2.76    s     = Training runtime
+	2.76    s     = Training runtime
+	2.76    s     = Training runtime
+	2.76    s     = Training runtime
+	0.04    s     = Validation (prediction) runtime
+	0.04    s     = Validation (prediction) runtime
+	0.04    s     = Validation (prediction) runtime
+	0.04    s     = Validation (prediction) runtime
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Training complete. Models trained: ['SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'Chronos[large]', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Total runtime: 463.26 s
+Total runtime: 463.26 s
+Total runtime: 463.26 s
+Total runtime: 463.26 s
+Best model: PatchTST
+Best model: PatchTST
+Best model: PatchTST
+Best model: PatchTST
+Best model score: -0.0693
+Best model score: -0.0693
+Best model score: -0.0693
+Best model score: -0.0693
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Loading predictor from path saved_models/autogluon-petr-mult
+Loading predictor from path saved_models/autogluon-petr-mult
+Loading predictor from path saved_models/autogluon-petr-mult
+Loading predictor from path saved_models/autogluon-petr-mult
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST
+Model not specified in predict, will default to the model with the best validation score: PatchTST

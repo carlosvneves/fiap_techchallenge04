@@ -1,5 +1,6 @@
 other/*
 tmp/*
+.venv_win_gpu/*
 .venv_autogluon/*
 # intelij
 .idea/*
