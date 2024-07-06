@@ -12,7 +12,7 @@ from os import path
 import plotly.graph_objects as go
 
 from sklearn.metrics import mean_squared_error, mean_absolute_error
-import numpy as np
+# import numpy as np
 
 
 def prepare_input():
@@ -38,7 +38,7 @@ def predict(model, fh=180):
 def get_forecast_changepoints(model, forecast):
 
     fig = model.plot(forecast)
-    a = add_changepoints_to_plot(fig.gca(), model, forecast)
+    add_changepoints_to_plot(fig.gca(), model, forecast)
 
     return fig
 

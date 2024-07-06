@@ -4,6 +4,7 @@ from statsmodels.tsa.stattools import grangercausalitytests
 import numpy as np
 import ipeadatapy as ip
 from os.path import exists
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 # get data from ipea or reads from file
 def get_ipea_data():
@@ -183,7 +184,29 @@ def extract_granger_result(cell):
                 return value[1]
     return None
 
+# Function to calculate metrics
+def calculate_metrics(y_true, y_pred):
+    mse = mean_squared_error(y_true, y_pred)
+    rmse = np.sqrt(mse)
+    mae = mean_absolute_error(y_true, y_pred)
+    mape = np.mean(np.abs((y_true - y_pred) / y_true)) * 100
+    return mse, rmse, mae, mape
 
+def calculate_metrics_for_each_model(df_combined):
+    # Calculate metrics for each model
+    metrics = {}
+    for model in ['yhat_a', 'yhat_p']:
+        y_true = df_combined['price']
+        y_pred = df_combined[model]
+        mse, rmse, mae, mape = calculate_metrics(y_true, y_pred)
+        metrics[model] = {
+            'MSE': mse,
+            'RMSE': rmse,
+            'MAE': mae,
+            'MAPE': mape
+        }
+
+    return metrics
 
 if __name__ == "__main__":
 
