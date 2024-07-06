@@ -10,6 +10,12 @@ import plotly.graph_objects as go
 # implementar outras features como aqui?
 # https://plbalmeida.gitbook.io/fiap-hands-on-de-ml-para-series-temporais/parte-1/overview/previsao-de-preco-d+15/performance_ml_d7
 
+#def set_predictions_prophet():
+    
+#predictions_prophet: pd.DataFrame = [] 
+#predictions_autogluon: pd.DataFrame = []
+
+
 def create_features(df):
     """
     Create time series features based on time series index.
@@ -209,13 +215,3 @@ def autogluon_model(fh=180, load=False):
         predictor = load_predictor()
     
     return predictor, df_mult_train, df_mult_test
-    
-
-    
-    
-if __name__ == "__main__":
-    predictor, df_mult_train, df_mult_test = autogluon_model()
-    # insample predictions
-    predictions = predict(df_mult_train, known_covariates=df_mult_test, predictor=predictor)
-    print(predictions.head())
-    get_forecast_chart(df_mult_test, predictions, predictor)
