@@ -8,11 +8,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 
-pd.options.display.float_format = "{:,.2f}".format
-# load data
-# petr_brent = st.session_state.petr_brent
-# Initialization
-
+# pd.options.display.float_format = "{:,.2f}".format
 
 @st.cache_data
 def get_preco_brent():
@@ -49,10 +45,10 @@ with tab1:
             O modelo foi construído considerando:
             - Biblioteca [_prophet_](https://facebook.github.io/prophet/);
             - Dados da série temporal de petróleo do tipo _brent_ entre 2001 e 2024;
-            - Foram incluídos _changepoints_ relativos à crise do Subprime (2008-2010), 
+            - Foram incluídos _changepoints_ relativos à crise do Subprime (2008-2010),
             o colapso do preço do petróleo (2014 a 2016) e a Pandemia de Covid-19 (2020 a 2022);
             - Previsão para 180 dias (fora da amostra).
-                    
+
             """
         )
 
@@ -105,10 +101,10 @@ with tab2:
             - O modelo é multivariado e considera as seguintes _features_:
                 - Componentes sazonais: mês, dia da semana;
                 - Componentes de calendário: ano, trimestre, dia do ano;
-            - O modelo foi treinado considerando o _preset_: [_chronos_large_ensemble_](https://auto.gluon.ai/stable/api/autogluon.timeseries.TimeSeriesPredictor.fit.html#autogluon.timeseries.TimeSeriesPredictor.fit);    
+            - O modelo foi treinado considerando o _preset_: [_chronos_large_ensemble_](https://auto.gluon.ai/stable/api/autogluon.timeseries.TimeSeriesPredictor.fit.html#autogluon.timeseries.TimeSeriesPredictor.fit);
             - A métrica de treinamento é a _WQL_ (Weighted Quantile Loss), baseada em quantis e com uma abordagem probabilística de previsão;
-            
-        
+
+
         """
         )
 
@@ -177,10 +173,10 @@ with tab3:
                 ---
 
                 As previsões fora da amostra foram comparadas com os dados observados entre 01/06/2024 e a última data disponível: {max_date:%d/%m/%Y}.
-                
+
                 A seguir está gráfico com os dados observados e as previsões para o modelo Autogluon e o modelo Prophet. A tabela mostra
                 as métricas de avaliação dos modelos.
-                
+
                 """
     )
 
@@ -230,8 +226,8 @@ with tab3:
     st.plotly_chart(fig)
 
     metrics = calculate_metrics_for_each_model(df_merge)
-   
-    metrics = pd.DataFrame(metrics.values(), index=metrics.keys()).T 
+
+    metrics = pd.DataFrame(metrics.values(), index=metrics.keys()).T
     metrics.rename(columns={"yhat_a": "Autogluon", "yhat_p": "Prophet"}, inplace=True)
 
     st.table(metrics.map("{:,.2f}".format))
