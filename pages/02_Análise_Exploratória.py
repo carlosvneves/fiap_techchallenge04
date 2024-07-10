@@ -14,7 +14,7 @@ import utils.dash_utils as dash_utils
 
 # Begin
 st.markdown(
-    "<h1 style='text-align: center;'> Análise Exploratória </h1>",
+    "<h1 style='text-align: center;'> Análise Exploratória 🛠️ 🔍</h1>",
     unsafe_allow_html=True
 )
 

@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-st.title("Conclusão")
+st.title("Insights💡")
 
 
 st.subheader("Principais pontos de observação:")
@@ -18,16 +18,16 @@ st.markdown("""
             este apresenta melhor performance, segundo as métricas MAPE, MSE, MAE e MASE;
             - A sugestão é que, para fins de previsão para o preço de petroleo do tipo _brent_,
             o modelo _autogluon_ seja o mais adequado;
-            - Ainda que o modelo autogluon seja o mais adequado para previsão, é importante notar que o modelo _prophet_
-            é útil para se notar como o erro do modelo aumenta ao longo do tempo, ou seja, quanto mais distante do
-            último valor observado, mais o erro aumenta;
-            - O modelo tende a ser mais confiável em um horizonte de até 20 dias:
+            - O modelo _prophet_ permite verificar como o erro se comporta ao longo do tempo, ou seja, quanto mais distante do
+            último valor observado, mais o erro aumenta. O modelo _prophet_ tende a ser mais confiável em um horizonte de até 20 dias;
+            - No horizonte de até 20 dias (fora da amostra) os resultados são os seguintes:
                 - Preço de acordo com o modelo _autogluon_ em 01/07/2024:  US$ 80,35;
                 - Preço de acordo com o modelo _prophet_ em 01/07/2024:  US$ 84,63;
                 - Preço de fechamento observado em 01/07/2024:  US$ 86,60;
             - Apesar de durante o teste o modelo _autogluon_ ser mais confiável, o _prophet_ foi o que teve o melhor resultado (menores erros)
             quando comparado aos dados efetivamente observados. Apesar disso, o modelo _autogluon_ foi aquele que melhor conseguiu prever a trajetória da série,
             em que pese os valores previstos estarem relativamente mais distantes do observado quando se analisa as métricas de erro.
+            - A recomendação é que o modelo _autogluon_ possa vir a ser o mais adequado, desde que melhor ajustado, pois acompanha melhor as alterações de tendência da série original. 
 
             """)
 
