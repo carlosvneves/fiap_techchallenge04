@@ -1,8 +1,0 @@
-,Model,MASE,RMSSE,MAE,RMSE,MAPE,SMAPE,R2,TT (Sec)
-xgboost_cds_dt,Extreme Gradient Boosting w/ Cond. Deseasonalize & Detrending,2.0483,1.8622,9.7881,12.2525,0.1046,0.1124,-0.623,14.58
-gbr_cds_dt,Gradient Boosting w/ Cond. Deseasonalize & Detrending,3.0671,2.6318,15.0488,17.6824,0.1663,0.1607,-2.1071,12.355
-lightgbm_cds_dt,Light Gradient Boosting w/ Cond. Deseasonalize & Detrending,3.0965,2.6387,15.1857,17.7242,0.1685,0.1636,-2.2135,13.4825
-rf_cds_dt,Random Forest w/ Cond. Deseasonalize & Detrending,3.18,2.6963,15.6339,18.1442,0.1728,0.1657,-2.3548,19.1875
-catboost_cds_dt,CatBoost Regressor w/ Cond. Deseasonalize & Detrending,4.0392,3.371,19.5207,22.3484,0.2108,0.2213,-3.4129,26.6325
-br_cds_dt,Bayesian Ridge w/ Cond. Deseasonalize & Detrending,3.9992,3.4148,19.3205,22.6929,0.2188,0.236,-5.8665,10.7
-knn_cds_dt,K Neighbors w/ Cond. Deseasonalize & Detrending,6.2305,5.4107,29.8916,35.6566,0.3256,0.4365,-14.3381,14.0375
