@@ -1,6 +1,12 @@
+other/*
+tmp/*
+.venv_win_gpu/*
+.venv_autogluon/*
+# intelij
+.idea/*
 # Streamlit
 .streamlit/
-
+.DS_Store
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
