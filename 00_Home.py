@@ -3,7 +3,18 @@ import utils.dash_utils as dash_utils
 import locale
 import utils.dash_utils as dash_utils
 
-locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+
+st.set_page_config(
+    page_title="FIAP-TC04-3DTAT",
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Report a bug': "https://github.com/carlosvneves/fiap_techchallenge04/contribute",
+        'About': "# Previsão do preço do petróleo do tipo Brent"
+    }
+)
+
 dash_utils.output_sidebar()
 
 @st.cache_data
