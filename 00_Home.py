@@ -1,5 +1,10 @@
 import streamlit as st
 import utils.dash_utils as dash_utils
+import locale
+import utils.dash_utils as dash_utils
+
+locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+dash_utils.output_sidebar()
 
 @st.cache_data
 def load_data(): 
@@ -28,3 +33,5 @@ with col2:
     st.page_link("pages/02_Análise_Exploratória.py", label="Análise exploratória dos dados", icon="🔍")
     st.page_link("pages/03_Modelos.py", label="Avaliação do modelo preditivo", icon="📈")
     st.page_link("pages/04_Conclusão.py", label="Conclusão (ou _insights_)", icon="💡")
+
+

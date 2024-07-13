@@ -207,13 +207,23 @@ def calculate_metrics_for_each_model(df_combined):
         }
 
     return metrics
+def output_sidebar():
+    import streamlit as st
 
-if __name__ == "__main__":
+    with st.sidebar:
+        st.subheader("FIAP-Alura Pós-Tech - 3DTAT (julho/2024)")
+        st.write("Carlos Eduardo Veras Neves | rm 353068")
+    
+def get_price_brent():
+    import ipeadatapy as ip
 
-    petr_brent = load_data()
+    petr_brent = ip.timeseries("EIA366_PBRENT366", yearGreaterThan=2023).reset_index()
+    petr_brent = petr_brent[["DATE", "VALUE (US$)"]].rename(
+        columns={"DATE": "date", "VALUE (US$)": "price"}
+    )
+    petr_brent["date"] = pd.to_datetime(petr_brent["date"])
 
-    print(petr_brent.describe())
+    petr_brent.query('date >= "2024-06-01"', inplace=True)
+    petr_brent.set_index("date", inplace=True)
 
-    df_describe = descriptive_statistics(petr_brent)
-
-    print(df_describe)
+    return petr_brent

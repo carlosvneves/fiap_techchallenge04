@@ -1,8 +1,8 @@
 import streamlit as st
-
 import streamlit.components.v1 as components
+import utils.dash_utils as dash_utils
 
-st.set_page_config(page_title="Pipeline de Machine Learning", layout="wide")
+dash_utils.output_sidebar()
 
 def mermaid(code: str) -> None:
     components.html(

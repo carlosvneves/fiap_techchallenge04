@@ -37,7 +37,7 @@ def predict(model, fh=180):
 
 def get_forecast_changepoints(model, forecast):
 
-    fig = model.plot(forecast)
+    fig = model.plot(forecast, figsize=(8, 6))
     add_changepoints_to_plot(fig.gca(), model, forecast)
 
     return fig
