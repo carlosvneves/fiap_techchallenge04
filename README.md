@@ -2,7 +2,7 @@
 
 #### __Repositório__: https://github.com/carlosvneves/fiap_techchallenge04 
 
-#### __Aplicação__ : https://fiaptechchallenge04-3dtat.app/
+#### __Aplicação__ : https://fiaptechchallenge04.streamlit.app/
 
 
 #### Desenvolvido por: *Carlos Eduardo Veras Neves* - rm 353068
