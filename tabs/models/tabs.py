@@ -53,7 +53,7 @@ def display_tabs():
         col1, col2 = st.columns(2)
         with col1:
             st.subheader("Decomposição dos componentes de sazonalidade e tendência:")
-            st.plotly_chart(prophet_model.get_forecast_plotly_components(model, forecast))
+            st.plotly_chart(prophet_model.get_forecast_plotly_components(model, forecast), use_container_width=True)
 
         with col2:
             st.subheader("Visualização das quebras-estruturais da série temporal:")
@@ -68,7 +68,7 @@ def display_tabs():
 
         st.markdown("""---""")
         st.subheader("Previsão para 180 dias:")
-        st.plotly_chart(prophet_model.get_forecast_plotly(model, forecast))
+        st.plotly_chart(prophet_model.get_forecast_plotly(model, forecast), use_container_width=False )
 
         st.markdown("""---""")
         st.subheader("Métricas de avaliação do modelo:")
