@@ -55,9 +55,9 @@ def display_tabs():
         st.markdown("""---""")
 
         st.subheader("Visualização das quebras-estruturais da série temporal:")
-        col1, _ = st.columns(2)
-        with col1:
-            st.pyplot(prophet_model.get_forecast_changepoints(model, forecast), use_container_width=True)
+        #col1, _ = st.columns(2)
+        #with col1:
+        st.pyplot(prophet_model.get_forecast_changepoints(model, forecast), use_container_width=True)
 
         st.markdown("""---""")
 
