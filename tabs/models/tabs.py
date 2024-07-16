@@ -47,20 +47,21 @@ def display_tabs():
             model, forecast = prophet_model.prophet_model(fh=fh)
 
         # previsão para 180 dias
-        #st.markdown("""---""")
+        
         
         st.markdown("""---""")      
-        col1, col2 = st.columns(2)
+        col1, _ = st.columns(2)
         with col1:
             st.subheader("Decomposição dos componentes de sazonalidade e tendência:")
             st.plotly_chart(prophet_model.get_forecast_plotly_components(model, forecast), use_container_width=True)
-
-        with col2:
+        
+        st.markdown("""---""")      
+        col1, _ = st.columns(2)
+        with col1:
             st.subheader("Visualização das quebras-estruturais da série temporal:")
             st.pyplot(prophet_model.get_forecast_changepoints(model, forecast), use_container_width=True)
 
         st.markdown("""---""")
-
         st.subheader("Métricas da previsão (sem validação cruzada):")
         col1, _ = st.columns(2)
         with col1:
