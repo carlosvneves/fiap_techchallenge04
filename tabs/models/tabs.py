@@ -52,31 +52,28 @@ def display_tabs():
         with container:
             st.subheader("Decomposição dos componentes de sazonalidade e tendência:")              
             st.plotly_chart(prophet_model.get_forecast_plotly_components(model, forecast), use_container_width=True)
-
-        st.markdown("""---""")      
-        #col1, _ = st.columns(2)
-        #with col1:
-        #    st.subheader("Visualização das quebras-estruturais da série temporal:")
-        #    st.pyplot(prophet_model.get_forecast_changepoints(model, forecast), use_container_width=True)
-
+     
+        
         container = st.container(border=True)
         with container:
-            st.subheader("Visualização das quebras-estruturais da série temporal:")
-            st.pyplot(prophet_model.get_forecast_changepoints(model, forecast), use_container_width=True)
+            col1, _ = st.columns(2)
+            with col1: 
+                st.subheader("Visualização das quebras-estruturais da série temporal:")
+                st.pyplot(prophet_model.get_forecast_changepoints(model, forecast), use_container_width=True)
 
-        st.markdown("""---""")
+
         container = st.container(border=True)       
         with container:
             st.subheader("Métricas da previsão (sem validação cruzada):")
             st.plotly_chart(prophet_model.get_performance_metrics_with_cv_plotly(model))
 
-        st.markdown("""---""")
+
         container = st.container(border=True)       
         with container:
             st.subheader("Previsão para 180 dias:")
             st.plotly_chart(prophet_model.get_forecast_plotly(model, forecast), use_container_width=False )
 
-        st.markdown("""---""")
+        st.divider()
         st.subheader("Métricas de avaliação do modelo:")
         col1,_ = st.columns(2)
         with col1: 
