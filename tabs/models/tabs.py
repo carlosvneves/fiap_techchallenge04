@@ -125,7 +125,7 @@ def display_tabs():
                 df_mult_train, known_covariates=df_mult_test, predictor=predictor
             )
 
-        container = st.container()
+        container = st.container(border=True)
         with container:
             st.subheader("Previsão para 180 dias (dentro da amostra):")
             st.plotly_chart(
@@ -140,7 +140,7 @@ def display_tabs():
                 st.table(predictor.fit_summary().get("leaderboard"))
 
         
-        container = st.container()
+        container = st.container(border=True)
         with container:
             st.subheader("Previsão para 180 dias (fora da amostra):")
 
