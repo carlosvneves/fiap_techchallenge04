@@ -52,9 +52,17 @@ def display_tabs():
         st.markdown("""---""")      
         col1, _ = st.columns(2)
         with col1:
-            st.subheader("Decomposição dos componentes de sazonalidade e tendência:")
+            st.subheader("Decomposição dos componentes de sazonalidade e tendência:")              
             st.plotly_chart(prophet_model.get_forecast_plotly_components(model, forecast), use_container_width=True)
         
+        
+        container = st.container(border=True)
+        with container:
+            st.subheader("Decomposição dos componentes de sazonalidade e tendência:")              
+            st.plotly_chart(prophet_model.get_forecast_plotly_components(model, forecast), use_container_width=True)
+
+
+
         st.markdown("""---""")      
         col1, _ = st.columns(2)
         with col1:
