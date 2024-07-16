@@ -125,32 +125,36 @@ def display_tabs():
                 df_mult_train, known_covariates=df_mult_test, predictor=predictor
             )
 
-        st.subheader("Previsão para 180 dias (dentro da amostra):")
-        st.plotly_chart(
-            autogluon_model.get_forecast_plotly(
-                test_data=df_mult_test, predictions=predictions
+        container = st.container()
+        with container:
+            st.subheader("Previsão para 180 dias (dentro da amostra):")
+            st.plotly_chart(
+                autogluon_model.get_forecast_plotly(
+                    test_data=df_mult_test, predictions=predictions
+                )
             )
-        )
-        with st.expander("Importância de cada modelo no _preset chronos large ensemble_"):
-            st.markdown("""
-                        O _preset chronos large ensemble_ utiliza diversos modelos para realizar as previsões. O _leaderboard_ apresenta os modelos mais importantes para o _ensemble_.
-                        """)
-            st.table(predictor.fit_summary().get("leaderboard"))
+            with st.expander("Importância de cada modelo no _preset chronos large ensemble_"):
+                st.markdown("""
+                            O _preset chronos large ensemble_ utiliza diversos modelos para realizar as previsões. O _leaderboard_ apresenta os modelos mais importantes para o _ensemble_.
+                            """)
+                st.table(predictor.fit_summary().get("leaderboard"))
 
-        st.markdown("""---""")
-        st.subheader("Previsão para 180 dias (fora da amostra):")
+        
+        container = st.container()
+        with container:
+            st.subheader("Previsão para 180 dias (fora da amostra):")
 
-        future_data = autogluon_model.make_future_data(df_mult_test, fh=180)
+            future_data = autogluon_model.make_future_data(df_mult_test, fh=180)
 
-        predictions_out_of_sample = autogluon_model.predict(
-            df_mult_test, known_covariates=future_data, predictor=predictor
-        )
-
-        st.plotly_chart(
-            autogluon_model.get_forecast_plotly(
-                test_data=df_mult_test, predictions=predictions_out_of_sample
+            predictions_out_of_sample = autogluon_model.predict(
+                df_mult_test, known_covariates=future_data, predictor=predictor
             )
-        )
+
+            st.plotly_chart(
+                autogluon_model.get_forecast_plotly(
+                    test_data=df_mult_test, predictions=predictions_out_of_sample
+                )
+            )
 
         st.markdown("""---""")
         st.subheader("Métricas de avaliação do modelo:")
